@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    font-weight: bold;
+}
+
+section {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    scroll-snap-align: start;
+    max-height: -webkit-fill-available;
+}
+
+.img {
+    width: 70%;
+    height: 70%;
+}
+
+.one {}
+
+.two {
+    /* height: calc(100vh - 64px); */
+    height: 100vh;
+}
+
+.three {
+    height: 100vh;
+}
+
+
+.container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    /* scroll-padding: 100px; */
+}
+
+.prev {
+    background-color: #00000028 !important;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 12px 10px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: #0000009e !important;
+    color: white;
+}
+
+.next {
+    background-color: #00000028 !important;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 12px 10px;
+}
+
+body {
+    background-image: url("./background.jpg");
+}
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* General styles */
+.appbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    padding: 0 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 35px;
+    width: 100%
+}
+
+/* Styles for small screens */
+@media screen and (max-width: 600px) {
+    .appbar {
+        justify-content: center;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px;
+}
+
+.book-img {
+    width: 300px;
+    animation: slide-in 1.5s ease-in-out;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100vw);
+    }
+
+    to {
+        transform: translateX(0%);
+        transform: rotateY(0deg);
+    }
+}
+
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.title-img {
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 50px
+}
+
+/* ////////////////////////////////// */
+.book-container {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: 50px auto;
+}
+
+.book1,
+.book2 {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.book2-mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .book1,
+    .book2 {
+        width: 200px;
+        height: 300px;
+    }
+
+    .book-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .slideshow-container {
+        height: 300px;
+        width: 90%;
+    }
+
+    .appbar {
+        height: 56px;
+    }
+
+    .logo img {
+        max-height: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .title-img {
+        width: 350px;
+        padding-bottom: 0px;
+    }
+
+    .icon {
+        /* bottom: -7px !important; */
+    }
+
+    .book1-mobile,
+    .book2-mobile,
+    .slideshow-mobile {
+        display: block;
+    }
+
+    .book1 {
+        margin-right: 0px !important;
+        margin: 0 auto;
+        width: 250px;
+        height: 350px;
+        margin-left: 20%;
+    }
+
+    .book2 {
+        display: none;
+        width: 250px;
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    /* 
+    .book1,
+    .book2 {
+        width: 150px;
+        height: 250px;
+    } */
+}
+
+.book-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform-origin: left center;
+    transform: rotateY(-30deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.book:hover .book-cover {
+    transform: rotateY(0deg);
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* //////////////////////////////////// */
+.icon {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    animation: fadeIn 5s ease-in-out;
+}
+
+#svg-arrow-down {
+    width: 14px;
+    display: block;
+    margin: 10px auto;
+    animation: anim .35s ease-in alternate infinite;
+    font-size: 30px;
+    color: #000000b3;
+}
+
+@keyframes anim {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

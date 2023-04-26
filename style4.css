@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    scroll-snap-align: start;
+}
+
+.img {
+    width: 70%;
+    height: 70%;
+}
+
+.one {}
+
+.two {
+    height: 100vh;
+}
+
+.three {
+    height: 100vh;
+}
+
+.four {}
+
+.container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    /* scroll-padding: 100px; */
+}
+
+body {
+    /* background-color: #fafafa; */
+    background-image: url("./background.jpg");
+}

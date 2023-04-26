@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<title>PIZZA HUT LAUNCH BOOK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/3a7ee4d227.js" crossorigin="anonymous"></script>
+
+<body>
+    <div class="container">
+        <section class="one book1-mobile">
+            <div style="">
+                <img class="title-img" src="./title.png" alt="Book Cover 1">
+                <div class="book-container">
+                    <div class="book1" style="margin-right: 10px;">
+                        <div class="book-cover">
+                            <img class="book-img" src="Menu-system-spread-00-cover.jpg" alt="Book Cover 1">
+                        </div>
+                    </div>
+                    <div class="book2" style="margin-left: 10px;">
+                        <div class="book-cover">
+                            <img class="book-img" src="Menu-system-spread-back.jpg" alt="Book Cover 2">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="icon">
+                    <i class="fa-solid fa-arrow-down" id="svg-arrow-down"></i>
+                </h1>
+            </div>
+        </section>
+        <section class="one book2-mobile">
+            <div style="">
+                <img class="title-img" src="./title.png" alt="Book Cover 1">
+                <div class="book-container">
+                    <div class="book1">
+                        <div class="book-cover">
+                            <img class="book-img" src="Menu-system-spread-back.jpg" alt="Book Cover 2">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="icon">
+                    <i class="fa-solid fa-arrow-down" id="svg-arrow-down"></i>
+                </h1>
+            </div>
+        </section>
+        <section class="two slideshow-mobile">
+            <div>
+                <img class="title-img" src="./title.png" alt="Book Cover 1">
+                <div style="width: 100%; display: flex; align-items: center; height: calc(100vh - 80px);">
+                    <div class="slideshow-container">
+                        <img class="slide active" src="./Menu-system-spread-01.jpg" width="100%">
+                        <img class=" slide" src="./Menu-system-spread-02.jpg" width="100%">
+                        <img class="slide" src="./Menu-system-spread-09.jpg" width="100%">
+                        <img class="slide" src="./1.jpg" width="100%">
+                        <img class="slide" src="./2.jpg" width="100%">
+                        <img class="slide" src="./3.jpg" width="100%">
+                        <img class="slide" src="./4.jpg" width="100%">
+                        <img class="slide" src="./5.jpg" width="100%">
+                        <img class="slide" src="./6.jpg" width="100%">
+
+                        <button class="w3-button w3-black w3-display-left prev">&#10094;</button>
+                        <button class="w3-button w3-black w3-display-right next">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            slides[n].classList.add('active');
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide === slides.length - 1) {
+                showSlide(0);
+            } else {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide === 0) {
+                showSlide(slides.length - 1);
+            } else {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+
+        let touching = false;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            slides[n].classList.add('active');
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide === slides.length - 1) {
+                showSlide(0);
+            } else {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide === 0) {
+                showSlide(slides.length - 1);
+            } else {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function (event) {
+            if (event.target.classList.contains('slide')) {
+                touchStartX = event.touches[0].clientX;
+                touching = true;
+            } else {
+                touching = false;
+            }
+        });
+
+        document.addEventListener('touchend', function (event) {
+            if (touching) {
+                touchEndX = event.changedTouches[0].clientX;
+                if (touchEndX < touchStartX) {
+                    nextSlide();
+                } else if (touchEndX > touchStartX) {
+                    prevSlide();
+                }
+                touching = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
